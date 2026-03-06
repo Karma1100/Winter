@@ -4,12 +4,17 @@
 
 package frc.robot;
 
+import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import frc.robot.util.SwerveModuleConstants;
+import frc.robot.util.VisionModuleConstants;
 import edu.wpi.first.math.util.Units;
 
+
+import edu.wpi.first.apriltag.AprilTagFieldLayout;
+import edu.wpi.first.apriltag.AprilTagFields;
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -158,5 +163,60 @@ public final class Constants {
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(kDriveSparkMaxID, kTurnSparkMaxID,
        angleOffset, driveInverted, turnInverted);
     }
+  }
+
+
+  public static class Turret{
+    public static final double turretRadius = 3; //this is from the center of the turret to the most outter part or the part you are going to measure
+    public static final double encoderConverionFactor = 0.0088235;
+    public static final double turretHome = 0.0;
+
+    //Soft Bounds
+    public static final double leftSoftBound = -0.45;
+    public static final double rightSoftBound = 0.45;
+
+    public static final double turretCircleThrow = 3;//this would be 3 of the units used based off of the turret radius. this would be 3 inches of arch length
+  }
+
+  public static class VisionConstants{
+    public static final class leftCamera{
+      public static final int outsideID = 1;
+      public static final int insideID = 1;
+
+      public static final double posX = 1;
+      public static final double posY = 1;
+      public static final double posZ = 1;
+
+      public static final VisionModuleConstants constants = new VisionModuleConstants(outsideID, insideID, insideID, outsideID, insideID);
+
+
+    }
+    public static final class rightCamera{
+      public static final int outsideID = 1;
+      public static final int insideID = 1;
+
+      public static final double posX = 1;
+      public static final double posY = 1;
+      public static final double posZ = 1;
+
+      public static final VisionModuleConstants constants = new VisionModuleConstants(outsideID, insideID, insideID, outsideID, insideID);
+
+      
+    }
+    public static final class centerCamera{
+      public static final int outsideID = 1;
+      public static final int insideID = 1;
+
+      public static final double posX = 1;
+      public static final double posY = 1;
+      public static final double posZ = 1;
+
+      public static final VisionModuleConstants constants = new VisionModuleConstants(outsideID, insideID, insideID, outsideID, insideID);
+      
+    }
+  }
+  public static class AprilTag{
+    public static final AprilTagFieldLayout  kfieldLayout = 
+      AprilTagFieldLayout.loadField(AprilTagFields.k2025ReefscapeWelded);
   }
 }
