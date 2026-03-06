@@ -3,7 +3,7 @@ package frc.robot.util;
 public class TurretModuleConstants {
     public final int turnMotorID;
     public final int shooterMotorLeftID, shooterMotorRightID;
-    public final double maxAngle, minAngle;
+
     public final double idleRPM, maxRPM;
     public final boolean turnMotorInverted, shooterMotorLeftInverted, shooterMotorRightInverted;
 
@@ -12,6 +12,7 @@ public class TurretModuleConstants {
      * @param turnMotorID
      * @param shooterMotorLeftID
      * @param shooterMotorRightID
+
      * @param turnMotorInverted
      * @param shooterMotorLeftInverted
      */
@@ -20,6 +21,7 @@ public class TurretModuleConstants {
         this.turnMotorID = turnMotorID;
         this.shooterMotorLeftID = shooterMotorLeftID;
         this.shooterMotorRightID = shooterMotorRightID;
+
         this.idleRPM = idleRPM;
         this.maxRPM = maxRPM;
         this.turnMotorInverted = turnMotorInverted;
