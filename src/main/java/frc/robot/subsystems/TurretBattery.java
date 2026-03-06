@@ -11,7 +11,7 @@ public class TurretBattery extends SubsystemBase{
 
     Vision cameraCenter, cameraLeft, cameraRight;
 
-    Turret turretLeft, turretRight;
+    Turret turtLeft, turtRight;
 
 
 
@@ -20,7 +20,9 @@ public class TurretBattery extends SubsystemBase{
         cameraLeft = new Vision("AnomLeftCamera", VisionConstants.leftCamera.constants);
         cameraRight = new Vision("AnomRightCamera", VisionConstants.rightCamera.constants);
 
-        turretLeft = new Turret(0, null);
+        turtLeft = new Turret(1, Constants.Turret.leftTurt.constants);
+        turtRight = new Turret(2, Constants.Turret.rightTurt.constants);
+
 
 
     }
@@ -31,6 +33,15 @@ public class TurretBattery extends SubsystemBase{
 
         return turt;
     }
+
+    public void deadReconOutside(){
+        //left turret out
+
+
+
+
+    }
+    
 
     
 

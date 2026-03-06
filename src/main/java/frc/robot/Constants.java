@@ -194,13 +194,15 @@ public final class Constants {
     }
     public static final class rightTurt{
       public static final int turnMotorID = 0;
-      public static final int shooterMotorLeftID;
-      public static final int shooterMotorRightID;
-      public static final double idleRPM;
-      public static final double maxRPM;
+      public static final int shooterMotorLeftID = 0;
+      public static final int shooterMotorRightID = 0;
+      public static final double idleRPM = 0;
+      public static final double maxRPM = 0;
       public static final boolean turnMotorInverted = false;
       public static final boolean shooterMotorLeftInverted = false;
       public static final boolean shooterMotorRightInverted = false;
+      public static final TurretModuleConstants constants = new TurretModuleConstants(turnMotorID, shooterMotorLeftID, shooterMotorRightID, idleRPM, maxRPM, turnMotorInverted, shooterMotorLeftInverted);
+
     }
   
   }

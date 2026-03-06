@@ -21,7 +21,6 @@ public class TurretModuleConstants {
         this.turnMotorID = turnMotorID;
         this.shooterMotorLeftID = shooterMotorLeftID;
         this.shooterMotorRightID = shooterMotorRightID;
-
         this.idleRPM = idleRPM;
         this.maxRPM = maxRPM;
         this.turnMotorInverted = turnMotorInverted;
