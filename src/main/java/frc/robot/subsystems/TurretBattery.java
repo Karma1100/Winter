@@ -20,6 +20,7 @@ public class TurretBattery extends SubsystemBase{
         cameraLeft = new Vision("AnomLeftCamera", VisionConstants.leftCamera.constants);
         cameraRight = new Vision("AnomRightCamera", VisionConstants.rightCamera.constants);
 
+        turretLeft = new Turret(0, null);
 
 
     }

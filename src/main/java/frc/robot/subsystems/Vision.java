@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.util.VisionModuleConstants;
 
+import java.util.function.BooleanSupplier;
+
 import org.photonvision.PhotonCamera;
 import org.photonvision.PhotonUtils;
 import org.photonvision.targeting.PhotonTrackedTarget;
@@ -40,7 +42,6 @@ public class Vision extends SubsystemBase{
     //for when scoring
     private double insideTargetYaw;
 
-    private PhotonTrackedTarget trackedTargetIn, trackedTargetOut;
 
     private int outsideAprilTagID, insideAprilTagID;
     private Pose3d cameraPositionOnField;
@@ -86,6 +87,7 @@ public class Vision extends SubsystemBase{
     private void targeting(int IDin, int IDout)
     {
         var result = cam.getLatestResult();
+
         if(!result.hasTargets())
         {
             targetInsideConformation = false;
@@ -107,14 +109,12 @@ public class Vision extends SubsystemBase{
 
     }
 
-    private void targeting(int ID1){
-        
-    }
-    private void insideTarget(){
-
-    }
-    private void outsideTarget(){
-
+    public Boolean hasTarget(){
+        if((targetInsideConformation || targetOutsdieConformation) == true)
+        {
+            return true;
+        }
+        return false;
     }
 
 

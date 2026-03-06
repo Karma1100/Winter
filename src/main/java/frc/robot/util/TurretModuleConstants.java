@@ -12,18 +12,14 @@ public class TurretModuleConstants {
      * @param turnMotorID
      * @param shooterMotorLeftID
      * @param shooterMotorRightID
-     * @param maxAngle
-     * @param minAngle
      * @param turnMotorInverted
      * @param shooterMotorLeftInverted
      */
     
-    public TurretModuleConstants(int turnMotorID, int shooterMotorLeftID, int shooterMotorRightID, double maxAngle, double minAngle, double idleRPM, double maxRPM, boolean turnMotorInverted, boolean shooterMotorLeftInverted){
+    public TurretModuleConstants(int turnMotorID, int shooterMotorLeftID, int shooterMotorRightID, double idleRPM, double maxRPM, boolean turnMotorInverted, boolean shooterMotorLeftInverted){
         this.turnMotorID = turnMotorID;
         this.shooterMotorLeftID = shooterMotorLeftID;
         this.shooterMotorRightID = shooterMotorRightID;
-        this.maxAngle = maxAngle;
-        this.minAngle = minAngle;
         this.idleRPM = idleRPM;
         this.maxRPM = maxRPM;
         this.turnMotorInverted = turnMotorInverted;

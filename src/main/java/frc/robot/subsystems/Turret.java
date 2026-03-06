@@ -1,6 +1,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.function.BooleanSupplier;
+
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
@@ -89,7 +91,8 @@ public class Turret extends SubsystemBase{
      * @param desiredangle this is formated with the understanding that left is negitive 180 and right is positive 180 
      * @return
      */
-    public Command setPosAngle(double desiredangle){
+    public Command setPosAngle(double desiredangle)
+    {
         
         double turretPos = desiredangle / 180;
 
@@ -100,39 +103,41 @@ public class Turret extends SubsystemBase{
         });
     }
 
-    //desired arc position must be in the total arch swing. the desired pizza crust must come from the existing pizza crust, not from the non existrant(no go zone)not form the non existant pizza.
-    public Command setPosPosition(double desiredPosition){
+    private void updatePosition(double desiredPosition)
+    {
         double turretPos = desiredPosition / (Constants.Turret.turretRadius * .5); //going from arc position to graph position
-        return runOnce(()->{
-            if((turretPos > Constants.Turret.leftSoftBound) && (turretPos < Constants.Turret.rightSoftBound)){
-                turretSpark.getClosedLoopController().setSetpoint(desiredPosition, ControlType.kPosition);
-            }
-        });
+        
+        if((turretPos > Constants.Turret.leftSoftBound) && (turretPos < Constants.Turret.rightSoftBound))
+        {
+            turretSpark.getClosedLoopController().setSetpoint(desiredPosition, ControlType.kPosition);
+        }
     }
-    //needs vision 
-    public Command circleSearch(boolean targetFound){
-        return run(() ->{
-            if(targetFound == false)
-            {
-                setPosPosition(circleSearchGenerator(Constants.Turret.speedModifyer));
-            }
 
+
+    //desired arc position must be in the total arch swing. the desired pizza crust must come from the existing pizza crust, not from the non existrant(no go zone)not form the non existant pizza.
+    public Command setPosPosition(double desiredPosition)
+    {
+        return runOnce(()->
+        {
+            updatePosition(desiredPosition);
         });
     }
     
+    //needs vision 
+    public Command circleSearch(BooleanSupplier targetFound)
+    {
+        return run(() ->
+        {
+            if(targetFound.getAsBoolean() == false)
+            {
+                double nextPos = circleSearchGenerator(Constants.Turret.speedModifyer);
+                updatePosition(nextPos);
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
+        });
+    }
+  
+    
 
 
 
