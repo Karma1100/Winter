@@ -110,9 +110,12 @@ public class Turret extends SubsystemBase{
         });
     }
     //needs vision 
-    public Command circleSearch(){
+    public Command circleSearch(boolean targetFound){
         return run(() ->{
-            
+            if(targetFound == false)
+            {
+                setPosPosition(circleSearchGenerator(Constants.Turret.speedModifyer));
+            }
 
         });
     }

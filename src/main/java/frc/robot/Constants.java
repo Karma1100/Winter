@@ -171,6 +171,7 @@ public final class Constants {
     public static final double encoderConverionFactor = 0.0088235;
     public static final double turretHome = 0.0;
 
+    public static final double speedModifyer = .2;
     //Soft Bounds
     public static final double leftSoftBound = -0.45;
     public static final double rightSoftBound = 0.45;
